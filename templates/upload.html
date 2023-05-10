@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Sentiment Anaylsis for Product Reviews</h1>
+    <div class="container">
+      <h2 class="title">Test a Sentence or Word</h2>
+      <form action="/predict" method="POST">
+        <div class="input-field">
+          <label for="sentence">Enter a sentence or word:</label>
+          <input type="text" name="sentence" id="sentence" required>
+        </div>
+        <button type="submit" class="button">Predict</button>
+        <div class="prediction-container">
+          <p><b>Prediction:</b> {{ sentiment }}</p>
+        </div>
+      </form>
+    </div>
+    <div class="container">
+      <h2 class="title">Upload a File</h2>
+      <form action="/" method="POST" enctype="multipart/form-data">
+        <div class="input-field">
+          <label for="link">Product link:</label>
+          <input type="text" name="link" id="link">
+          <br>
+          <label for="name">Product name:</label>
+          <input type="text" name="name" id="name">
+          <br>
+          <label for="file">Select a file:</label>
+          <input type="file" name="file" id="file" required>
+        </div>
+        <button type="submit" class="button">Upload</button>
+      </form>
+    </div>
+  </body>
+</html>
